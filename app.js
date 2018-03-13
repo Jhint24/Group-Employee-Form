@@ -10,17 +10,27 @@
   };
   firebase.initializeApp(config);
   
+  var database = firebase.database();
+
   var name;
   var role;
   var start;
   var rate;
-  
-  $('#run-search').click(function() {
+
+  $('#run-search').on('click', function(e) {
+    e.preventDefault();
     name = $('#search-name').val();
     role = $('#search-role').val();
     start = $('#start-date').val();
     rate = $('#monthly-rate').val();
     console.log(name, role, start, rate)
 
+    
+    database.ref().push({
+      name: name,
+      role: role,
+      start: start,
+      rate: rate
+    });
   });
   
