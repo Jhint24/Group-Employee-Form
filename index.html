@@ -31,9 +31,31 @@
     <div class="jumbotron" style="background-color: #20315A ; color: white;">
       <h1 class="text-center">
         <strong>
-          <i class="fa fa-newspaper-o"></i> New York Times Search</strong>
+          <i class="fa fa-newspaper-o"></i> Employee Data Management</strong>
       </h1>
     </div>
+        <!-- This row will handle all of the retrieved articles -->
+        <div class="row">
+          <div class="col-sm-12">
+            <br>
+    
+            <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+            <div class="panel panel-primary">
+    
+              <!-- Panel Heading for the retrieved articles box -->
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <strong>
+                    <i class="fa fa-table"></i> Top Articles</strong>
+                </h3>
+              </div>
+    
+              <!-- This main panel will hold each of the resulting articles -->
+              <div class="panel-body" id="well-section">
+              </div>
+            </div>
+          </div>
+        </div>
 
     <!-- Row for Searching New York Times -->
     <div class="row">
@@ -44,7 +66,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               <strong>
-                <i class="fa  fa-list-alt"></i> Search Parameters</strong>
+                <i class="fa  fa-list-alt"></i>Add Employee</strong>
             </h3>
           </div>
           <div class="panel-body">
@@ -54,31 +76,27 @@
 
               <!-- Here we create the text box for capturing the search term-->
               <div class="form-group">
-                <label for="search">Search Term:</label>
-                <input type="text" class="form-control" id="search-term">
+                <label for="search">Employee Name
+                </label>
+                <input type="text" class="form-control" id="search-name">
               </div>
 
               <!-- Here we capture the number of records that the user wants to retrieve  -->
               <div class="form-group">
-                <label for="pwd">Number of Records to Retrieve:</label>
-                <select class="form-control" id="article-count">
-                  <option value="1">1</option>
-                  <!-- Setting the option for 5 as default -->
-                  <option value="5" selected>5</option>
-                  <option value="10">10</option>
-                </select>
+                <label for="pwd">Role</label>
+                <input type="text" class="form-control" id="search-role">
               </div>
 
               <!-- Here we capture the Start Year Parameter-->
               <div class="form-group">
-                <label for="start-year">Start Year (Optional):</label>
-                <input type="text" class="form-control" id="start-year">
+                <label for="start-year">Start Date (DD/MM/YY -ex: 01/01/89)</label>
+                <input type="text" class="form-control" id="start-date">
               </div>
 
               <!-- Here we capture the End Year Parameter -->
               <div class="form-group">
-                <label for="end-year">End Year (Optional):</label>
-                <input type="text" class="form-control" id="end-year">
+                <label for="end-year">Monthly Rate</label>
+                <input type="text" class="form-control" id="monthly-rate">
               </div>
 
               <!-- Here we have our final submit button -->
@@ -93,28 +111,7 @@
       </div>
     </div>
 
-    <!-- This row will handle all of the retrieved articles -->
-    <div class="row">
-      <div class="col-sm-12">
-        <br>
 
-        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-        <div class="panel panel-primary">
-
-          <!-- Panel Heading for the retrieved articles box -->
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <strong>
-                <i class="fa fa-table"></i> Top Articles</strong>
-            </h3>
-          </div>
-
-          <!-- This main panel will hold each of the resulting articles -->
-          <div class="panel-body" id="well-section">
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Footer Region -->
     <div class="row">
@@ -137,8 +134,10 @@
   <script src="https://code.jquery.com/jquery.js"></script>
 
   <!-- Code to the JavaScript File -->
-  <script src="NYTCode.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="app.js"></script>
 
 </body>
 
 </html>
+<!--initlalize firebase, create database reference, captire button click, grab from text, code for 
