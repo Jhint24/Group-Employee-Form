@@ -32,5 +32,22 @@
       start: start,
       rate: rate
     });
+
+    $('#search-name').val('');
+    $('#search-role').val('');
+    $('#start-date').val('');
+    $('#monthly-rate').val('');
+
   });
+
+  database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+    
+    // full list of items to the well
+    $("#well-section").append("<div class='well row'><span class='employee-name col-md-2'> " + snapshot.val().name +
+    " </span><span class='employee-role col-md-2'> " + snapshot.val().role +
+    " </span><span class='employee-start col-md-2'> " + snapshot.val().start +
+    " </span><span class='employee-rate col-md-2'> " + snapshot.val().rate + " </span></div>");
+  });
+
   
+
